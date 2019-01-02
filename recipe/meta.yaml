@@ -37,6 +37,9 @@ requirements:
 test:
   imports:
     - sfepy
+  commands:
+    python run_tests.py
+
 
 about:
   home: http://{{ name }}.org
