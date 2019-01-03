@@ -37,10 +37,7 @@ requirements:
 test:
   imports:
     - sfepy
-  commands:
-    python run_tests.py
-
-
+    
 about:
   home: http://{{ name }}.org
   license: BSD-3-Clause
