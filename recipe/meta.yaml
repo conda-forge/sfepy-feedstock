@@ -33,16 +33,16 @@ requirements:
     - matplotlib
     - sympy
 
-  test:
-    imports:
-      - sfepy
-    files:
-      - run_tests.py
-    source_files:
-      - run_tests.py
-      - tests/
-    commands:
-      - python run_tests.py
+test:
+  imports:
+    - sfepy
+  files:
+    - run_tests.py
+  source_files:
+    - run_tests.py
+    - tests/
+  commands:
+    - python run_tests.py
 
 about:
   home: http://{{ name }}.org
