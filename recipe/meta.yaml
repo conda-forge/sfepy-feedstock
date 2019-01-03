@@ -41,6 +41,7 @@ test:
   source_files:
     - run_tests.py
     - tests/
+    - examples/
   commands:
     - python run_tests.py
 
