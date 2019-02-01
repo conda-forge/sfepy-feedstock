@@ -16,16 +16,16 @@ build:
 
 requirements:
   build:
-    - python {{PY_VER}}*,>=2.7,<3.7
+    - python=2.7.*
     - cython
     - numpy>=1.11.*
     - scipy
     - pyparsing
-    - pytables>=3.3.*
+    - pytables=3.3.*
     - matplotlib
 
   run:
-    - python {{PY_VER}}*,>=2.7,<3.7
+    - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - pyparsing
