@@ -20,7 +20,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - python=2.7.*
+    - python {{ python }}
     - cython
     - numpy>=1.11.*
     - scipy
@@ -29,7 +29,7 @@ requirements:
     - matplotlib
 
   run:
-    - python
+    - python {{ python }}
     - {{ pin_compatible('numpy') }}
     - scipy
     - pyparsing
