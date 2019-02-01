@@ -3,9 +3,6 @@
 {% set org = "sfepy" %}
 {% set version = "2018.4" %}
 
-conda_build:
-  config_file: ../conda_build_config.yaml
-
 package:
   name: {{ name }}
   version: {{ version }}
@@ -19,7 +16,6 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - python {{ python }}
     - cython
     - numpy>=1.11.*
