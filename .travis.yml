@@ -22,6 +22,11 @@ matrix:
       osx_image: xcode12u
       arch: amd64
 
+    - env: CONFIG=osx_64_numpy1.18python3.6.____73_pypy UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
+      arch: amd64
+
     - env: CONFIG=osx_64_numpy1.19python3.9.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode12u

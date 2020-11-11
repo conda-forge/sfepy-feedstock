@@ -11,7 +11,7 @@ jobs:
     environment:
       - CONFIG: "linux_64_numpy1.16python3.6.____cpython"
       - UPLOAD_PACKAGES: "True"
-        DOCKER_IMAGE: "condaforge/linux-anvil-comp7"
+        DOCKER_IMAGE: "quay.io/condaforge/linux-anvil-comp7"
     steps:
       - checkout
       - run:
@@ -31,7 +31,7 @@ jobs:
     environment:
       - CONFIG: "linux_64_numpy1.16python3.7.____cpython"
       - UPLOAD_PACKAGES: "True"
-        DOCKER_IMAGE: "condaforge/linux-anvil-comp7"
+        DOCKER_IMAGE: "quay.io/condaforge/linux-anvil-comp7"
     steps:
       - checkout
       - run:
@@ -51,7 +51,27 @@ jobs:
     environment:
       - CONFIG: "linux_64_numpy1.16python3.8.____cpython"
       - UPLOAD_PACKAGES: "True"
-        DOCKER_IMAGE: "condaforge/linux-anvil-comp7"
+        DOCKER_IMAGE: "quay.io/condaforge/linux-anvil-comp7"
+    steps:
+      - checkout
+      - run:
+          name: Fast finish outdated PRs and merge PRs
+          command: |
+            ./.circleci/fast_finish_ci_pr_build.sh
+            ./.circleci/checkout_merge_commit.sh
+      - run:
+          # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
+          command: |
+            export CI=circle
+            export FEEDSTOCK_NAME=$(basename ${CIRCLE_PROJECT_REPONAME})
+            ./.scripts/run_docker_build.sh
+  build_linux_64_numpy1.18python3.6.____73_pypy:
+    working_directory: ~/test
+    machine: true
+    environment:
+      - CONFIG: "linux_64_numpy1.18python3.6.____73_pypy"
+      - UPLOAD_PACKAGES: "True"
+        DOCKER_IMAGE: "quay.io/condaforge/linux-anvil-comp7"
     steps:
       - checkout
       - run:
@@ -71,7 +91,7 @@ jobs:
     environment:
       - CONFIG: "linux_64_numpy1.19python3.9.____cpython"
       - UPLOAD_PACKAGES: "True"
-        DOCKER_IMAGE: "condaforge/linux-anvil-comp7"
+        DOCKER_IMAGE: "quay.io/condaforge/linux-anvil-comp7"
     steps:
       - checkout
       - run:
@@ -93,4 +113,5 @@ workflows:
       - build_linux_64_numpy1.16python3.6.____cpython
       - build_linux_64_numpy1.16python3.7.____cpython
       - build_linux_64_numpy1.16python3.8.____cpython
+      - build_linux_64_numpy1.18python3.6.____73_pypy
       - build_linux_64_numpy1.19python3.9.____cpython
