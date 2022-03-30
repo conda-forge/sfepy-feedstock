@@ -1,4 +1,4 @@
-{% set version = "2021.4" %}
+{% set version = "2022.1" %}
 
 package:
   name: sfepy
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://github.com/sfepy/sfepy/archive/release_{{ version }}.zip
-  sha256: 4bb2609f838719993f33a5ce20b815a7f1771f18a883e959df2740b17d770e42
+  sha256: 4dded0b6eae258e99286dd13c0464a463d81ad7646c98381fb63cca9bf2617b8
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -50,14 +50,10 @@ about:
   home: http://sfepy.org
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: "Simple finite elements in Python"
+  summary: Simple finite elements in Python
   description: >-
-    SfePy is a software for solving systems of coupled partial
-    differential equations (PDEs) by the finite element method in 1D,
-    2D and 3D. It can be viewed both as black-box PDE solver, and as a
-    Python package which can be used for building custom
-    applications. The word simple means that complex FEM problems can
-    be coded very easily and rapidly.
+    SfePy is a software for solving systems of coupled partial differential equations (PDEs) by the finite element method in 1D, 2D and 3D. It can be viewed both as black-box PDE solver, and as a Python package which can be used for building custom applications. The word simple means that complex FEM problems can be coded
+    very easily and rapidly.
   doc_url: http://sfepy.org
   dev_url: https://github.com/sfepy/sfepy
 
