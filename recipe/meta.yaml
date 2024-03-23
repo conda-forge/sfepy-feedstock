@@ -1,12 +1,13 @@
-{% set version = "2023.4" %}
+{% set version = "2024.1" %}
 
 package:
   name: sfepy
   version: {{ version }}
 
 source:
-  url: https://github.com/sfepy/sfepy/archive/release_{{ version }}.zip
-  sha256: 050486154cdbbd9ff83a205390091493c6c350e94fe28a812066c4d969bce4fa
+  url: https://github.com/sfepy/sfepy/archive/300a98954527c781bbcb4d82e5b6e6bca7f787fc.zip
+  sha256: d21b94594db6d4d13857093e6bb140943d311334c6f2151cdac6fdff9de82b05
+#  url: https://github.com/sfepy/sfepy/archive/release_{{ version }}.zip
 
 build:
   number: 0
@@ -54,7 +55,7 @@ test:
   source_files:
     - meshes/
   commands:
-    - python -c "import sfepy, sys; sys.exit(sfepy.test())"
+    - python -c "import sfepy, sys; sys.exit(sfepy.test('--trace-config', '--setup-show'))"
 
 about:
   home: http://sfepy.org
