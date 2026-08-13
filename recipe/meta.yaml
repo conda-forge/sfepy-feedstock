@@ -5,8 +5,8 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://github.com/sfepy/sfepy/archive/release_{{ version }}.zip
-  sha256: 5a7cc56e43e9d7c1c2e0725419da61d7f27862b0b67df5e22c53791693fe4576
+  url: https://github.com/rc/sfepy/archive/refs/heads/fix-build-time-dependencies.zip
+  sha256: d67f52438a2e8e20c1a3ee68ab0a82a5da871f83d08644ee56ffd8076b519dc2
 
 build:
   number: 0
@@ -22,6 +22,10 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cmake
