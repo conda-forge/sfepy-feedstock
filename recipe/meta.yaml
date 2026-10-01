@@ -9,7 +9,7 @@ source:
   sha256: e86b209fed5a1be237c35c3032c2ed4841409036c05463cdf1a7f672c109126c
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and py<311]
   entry_points:
     - sfepy-convert = sfepy.scripts.convert_mesh:main
